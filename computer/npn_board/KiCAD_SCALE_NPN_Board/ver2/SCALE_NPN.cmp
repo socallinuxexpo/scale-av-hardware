@@ -1,0 +1,150 @@
+Cmp-Mod V01 Created by Cvpcb (2014-11-09 BZR 5259)-product   date = Mon 22 Dec 2014 12:28:04 PM PST
+
+BeginCmp
+TimeStamp = /549216E2;
+Reference = P1;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /549237C1;
+Reference = P2;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /549239CE;
+Reference = P3;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /549239D6;
+Reference = P4;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54923E28;
+Reference = P5;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54923E30;
+Reference = P6;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54923E38;
+Reference = P7;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54923E40;
+Reference = P8;
+ValeurCmp = CONN_01X02;
+IdModule  = local:TermB_OnShore_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54988BB1;
+Reference = P9;
+ValeurCmp = CONN_01X03;
+IdModule  = local:TermB_OnShore_3POS_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54988CEE;
+Reference = P10;
+ValeurCmp = CONN_01X03;
+IdModule  = local:TermB_OnShore_3POS_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54988D48;
+Reference = P11;
+ValeurCmp = CONN_01X03;
+IdModule  = local:TermB_OnShore_3POS_3d5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /5491067B;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54910BA4;
+Reference = R2;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54910D46;
+Reference = R3;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54910D60;
+Reference = R4;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /5491118A;
+Reference = R5;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /549111A4;
+Reference = R6;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /549111BE;
+Reference = R7;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /549111D8;
+Reference = R8;
+ValeurCmp = R;
+IdModule  = Resistors_SMD:R_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54915C7D;
+Reference = U1;
+ValeurCmp = MMPQ2222A;
+IdModule  = SOIC_Packages:SOIC-16_3.9x9.9mm_Pitch1.27mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54916BAE;
+Reference = U2;
+ValeurCmp = MMPQ2222A;
+IdModule  = SOIC_Packages:SOIC-16_3.9x9.9mm_Pitch1.27mm;
+EndCmp
+
+EndListe
