@@ -19,7 +19,7 @@ svg/6mm_output1.svg: 6mm_output1.scad
 	mkdir -p svg
 	$(OSC) -m make -o $@ $<
 
-svg/6mm_output2.svg: 3mm_output2.scad
+svg/6mm_output2.svg: 6mm_output2.scad
 	mkdir -p svg
 	$(OSC) -m make -o $@ $<
 
@@ -31,7 +31,7 @@ dxf/6mm_output1.dxf: 6mm_output1.scad
 	mkdir -p dxf
 	$(OSC) -m make -o $@ $<
 
-dxf/6mm_output2.dxf: 3mm_output2.scad
+dxf/6mm_output2.dxf: 6mm_output2.scad
 	mkdir -p dxf
 	$(OSC) -m make -o $@ $<
 
