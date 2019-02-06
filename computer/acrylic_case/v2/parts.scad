@@ -85,10 +85,10 @@ module side(side="left"){
         for(Y=[70,120,170]) translate([7,Y,0]) cylinder(d=3, h=20, center=true, $fn=60);
         for(Y=[185,45]) translate([22.5,Y,0]) cube([10,top_thickness+0.1,main_thickness+0.1], center=true);
         if(side=="left"){
-            translate([-78,-190,-(main_thickness/2)-0.1]) scale([0.25,0.3,1]) scale_av();
+            translate([-20,-175,-(main_thickness/2)-0.1]) scale([0.75,0.8,1]) scale_av();
         }
         else{
-            translate([-78,52,-(main_thickness/2)-0.1]) scale([0.25,0.3,1]) mirror([0,1,0]) scale_av();
+            translate([-20,38,-(main_thickness/2)-0.1]) scale([0.75,0.8,1]) mirror([0,1,0]) scale_av();
         }
         for(O=[0:12:110]) translate([28,175-O,0]) hull(){
             cylinder(d=6, h=main_thickness+0.1, center=true, $fn=60);
@@ -116,7 +116,7 @@ module back_base(thickness=main_thickness){
 module back(){
     difference(){
         back_base();
-        translate([-78,-125,-(main_thickness/2)-0.1]) scale([0.25,0.3,1]) scale_av();
+        translate([-20,-100,-(main_thickness/2)-0.1]) scale([0.75,0.75,1]) scale_av();
     }
 }
 
@@ -224,9 +224,10 @@ module base_plate(thickness=main_thickness, dual_tab=true){
 module top_plate(){
     difference(){
         base_plate(thickness=top_thickness, dual_tab=false);
-        translate([125,50,-0.01-top_thickness/2]) rotate([0,0,90]) scale([0.25,0.3,1]) scale_av(thickness=top_thickness+0.2);
+        translate([100,100,-0.01-top_thickness/2]) rotate([0,0,90]) scale([0.75,0.75,1]) scale_av(thickness=top_thickness+0.2);
         translate([50,80,-0.01-top_thickness/2]) rotate([0,0,180]) troy();
-        for(X=[-1,1], Y=[-170,-60,60, 170]) translate([((internal_width-main_thickness)/2)*X, Y, 0]) cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
+        for(X=[-1,1], Y=[-170,-60,60, 170]) translate([((internal_width-main_thickness)/2)*X, Y, 0]) 
+            cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
         for(X=[-1,1]) translate([80*X, -((380/2)+main_thickness/2), 0]) cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
         if(front_panel_thickness == main_thickness){
             for(X=[-1,1]) translate([85*X, ((380/2)+front_panel_thickness/2), 0]) cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
