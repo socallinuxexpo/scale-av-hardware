@@ -1,6 +1,7 @@
 include <tesmart.scad>
 include <motherboard.scad>
 include <sata_mount.scad>
+use <front.scad>
 
 main_thickness=6.35;
 top_thickness=3.175;
@@ -59,9 +60,9 @@ module usb_mount_brace(thickness=top_thickness){
     }
 }
 
-module usb_mount_cutout(thickness=main_thickness+0.1){
-    for(X=[-1,1]) translate([20*X,0,0]) cube([10,thickness,thickness], center=true);
-    cylinder(d=3, h=thickness, center=true, $fn=60);
+module usb_mount_cutout(thickness=main_thickness){
+    for(X=[-1,1]) translate([20*X,0,0]) cube([10,thickness,thickness+0.1], center=true);
+    cylinder(d=3, h=thickness+0.1, center=true, $fn=60);
 }
 
 module usb_sides(thickness=top_thickness, top_tab_height=top_thickness, bottom_tab_height=main_thickness){
@@ -117,41 +118,6 @@ module back(){
     difference(){
         back_base();
         translate([-20,-100,-(main_thickness/2)-0.1]) scale([0.75,0.75,1]) scale_av();
-    }
-}
-
-module front(type="exp"){
-    difference(){
-        back_base(thickness=front_panel_thickness);
-        for(Y=[0:1:3]) translate([22.5, -20.5+Y*28,0]) cylinder(d=6, h=40, center=true, $fn=60);
-        hull() for(X=[-5,5]) translate([22.5+X, -123.5,0]) cylinder(d=5, h=40, center=true, $fn=60);
-        hull() for(X=[-7,7], Y=[-124, -57]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
-        hull() for(X=[-12.5,7], Y=[-124, -39.5]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
-        for(Y=[-20,7]) translate([-1,Y,0]) union(){
-            cylinder(d=23, h=front_panel_thickness+0.1, center=true, $fn=60);
-            translate([12,-9.5,0]) rotate([0,0,0]) cylinder(d=3, h=front_panel_thickness+0.1, center=true, $fn=60);
-            translate([-12,9.5,0]) rotate([0,0,0]) cylinder(d=3, h=front_panel_thickness+0.1, center=true, $fn=60);
-        }
-        translate([-5,34,0]) union(){
-            cube([17.5,16,front_panel_thickness+0.1], center=true);
-            translate([12,-9.5,0]) rotate([0,0,0]) cylinder(d=3, h=front_panel_thickness+0.1, center=true, $fn=60);
-            translate([-12,9.5,0]) rotate([0,0,0]) cylinder(d=3, h=front_panel_thickness+0.1, center=true, $fn=60);
-        }
-        translate([-2.25,121.75,0]) cylinder(d=2.25, h=front_panel_thickness+0.1, center=true, $fn=60);
-        translate([-27.75,58.3,0]) cylinder(d=2.25, h=front_panel_thickness+0.1, center=true, $fn=60);
-
-        translate([-11,119,0]) cylinder(d=10, h=front_panel_thickness+0.1, center=true, $fn=60);
-        translate([-25,132,0]) cylinder(d=12, h=front_panel_thickness+0.1, center=true, $fn=60);
-        for(Y=[35,-65,-105]) translate([-29.2,Y,0]) hdmi_cutout(thickness=main_thickness+0.2);
-        translate([-25.5,-10,0]) usb_cutout(thickness=main_thickness+0.2);
-        if(type=="exp"){
-            translate([-5,132,0])  cylinder(d=12, h=front_panel_thickness+0.1, center=true, $fn=60);
-            translate([-28,-132,0])  cylinder(d=12, h=front_panel_thickness+0.1, center=true, $fn=60);
-        }
-        else{
-            translate([-5,132,0])  cylinder(d=8, h=front_panel_thickness+0.1, center=true, $fn=60);
-            translate([-28,-132,0])  cylinder(d=8, h=front_panel_thickness+0.1, center=true, $fn=60);
-        }
     }
 }
 
@@ -259,7 +225,7 @@ module mount_plate(){
         translate([-137, -90, -0.1])
             for(X=[3.5,102-3.5], Y=[55.5, 124.5]) translate([X,Y,-0.1])
                 cylinder(d=3, h=15, center=true, $fn=60);
-        for(X=[95,130, -95, -130], Y=[-75, 65]) translate([X,Y,0]) tab(width=top_thickness+0.1, length=10+0.1);
+        for(X=[95,130, -95, -130], Y=[-75, 65]) translate([X,Y,-(main_thickness/2)+0.2]) tab(width=top_thickness+0.1, length=10+0.1);
 
         //cylinder(d=3, h=15, center=true, $fn=60);
         translate([60,-30,-(main_thickness/2)+0.2]) rotate([0,0,45]){
