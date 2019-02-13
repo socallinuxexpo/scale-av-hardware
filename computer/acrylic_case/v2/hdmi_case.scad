@@ -7,21 +7,11 @@ include <parts.scad>
 
 rotate([0,0,180]) hdmi_case();
 
-
-module sata_mount_panel(){
-    difference(){
-        hull() for(X=[-1,1]) translate([-45*X,0, 0,]) cylinder(d=7, h=top_thickness, center=true, $fn=60);
-        for(X=[-45,15,45]) translate([X,0, 0,]) cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
-    }
-    for(X=[-10,30]) translate([X,5,0]) tab(length=10, width=top_thickness, thickness=top_thickness);
-    
-}
-
 module hdmi_case(){
     xlr_height=40;
     hdmi_height=63;
     translate([45,-100,0]) rotate([0,0,90]) motherboard();
-//    translate([0,115,12.5]) TESmart();
+    translate([0,115,12.5]) TESmart();
 
     translate([34,(380/2)+1.5+front_panel_thickness,xlr_height]) rotate([0,0,180]) xlr_cat6();
     translate([7,(380/2)+1.5+front_panel_thickness,xlr_height-4]) rotate([0,0,180]) xlr_635();
@@ -44,17 +34,16 @@ module hdmi_case(){
     translate([-10,(380/2),hdmi_height-2.5]) rotate([0,0,180]) dual_usb_panelmount();
     translate([-65,(380/2)-7.5,hdmi_height]) rotate([0,0,180]) hdmi_panelmount();
     translate([-105,(380/2)-7.5,hdmi_height]) rotate([0,0,180]) hdmi_panelmount();
-
-    translate([-35,190,31.5]) rotate([0,0,180]) sata_mount();
-    translate([-138.8,120.5,36]) rotate([-90,0,-90]) sata_mount_panel();
-    translate([-30.8,120.5,36]) rotate([-90,0,-90]) sata_mount_panel();
-
+    translate([-3.5,-2,0]){
+      translate([-34.5,190,31.5]) rotate([0,0,180]) sata_mount();
+      translate([-32.5,120,36]) rotate([-90,0,-90]) sata_mount_panel();
+    }
 
 //    translate([0,10,35]) %cube([280, 380, internal_height], center=true);
 
 
     translate([((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side();
-//    %translate([-((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side(side="right");
+    %translate([-((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side(side="right");
     translate([0,-(380/2)-(main_thickness/2),(internal_height/2)]) rotate([0,90,-90]) back();
     translate([0,(380/2)+front_panel_thickness/2,(internal_height/2)]) rotate([0,90,-90]) front();
 
@@ -68,5 +57,5 @@ module hdmi_case(){
         translate([0,0,main_thickness+top_thickness/2]) usb_mount_brace();
     }
     translate([0,0,-(main_thickness/2)]) bottom_plate();
-//    %translate([0,0,internal_height+(top_thickness/2)]) top_plate();
+    %translate([0,0,internal_height+(top_thickness/2)]) top_plate();
 }

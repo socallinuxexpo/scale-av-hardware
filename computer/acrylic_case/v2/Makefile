@@ -35,6 +35,14 @@ dxf/6mm_output2.dxf: 6mm_output2.scad
 	mkdir -p dxf
 	$(OSC) -m make -o $@ $<
 
+dxf/right_side.dxf: side.scad
+	mkdir -p dxf
+	$(OSC) -D "side=\"right\"" -m make -o $@ $<
+
+dxf/left_side.dxf: side.scad
+	mkdir -p dxf
+	$(OSC) -D "side=\"left\"" -m make -o $@ $<
+
 rendering: img/hdmi_case.png
 
 img/hdmi_case.png: hdmi_case.scad
