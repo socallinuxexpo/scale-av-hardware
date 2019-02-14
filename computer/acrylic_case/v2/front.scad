@@ -1,6 +1,6 @@
 include <parts.scad>
 
-front();
+projection(cut=true) front();
 
 module front(type="exp"){
     drill_hole=2.28;

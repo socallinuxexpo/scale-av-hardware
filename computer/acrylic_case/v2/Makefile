@@ -43,6 +43,22 @@ dxf/left_side.dxf: side.scad
 	mkdir -p dxf
 	$(OSC) -D "side=\"left\"" -m make -o $@ $<
 
+dxf/mount_plate.dxf: mount_plate.scad
+	mkdir -p dxf
+	$(OSC) -m make -o $@ $<
+
+dxf/front.dxf: front.scad
+	mkdir -p dxf
+	$(OSC) -m make -o $@ $<
+
+dxf/sata_mount_panel.dxf: sata_mount_panel.scad
+	mkdir -p dxf
+	$(OSC) -m make -o $@ $<
+
+dxf/test_panel2.dxf: test2.scad
+	mkdir -p dxf
+	$(OSC) -m make -o $@ $<
+
 rendering: img/hdmi_case.png
 
 img/hdmi_case.png: hdmi_case.scad

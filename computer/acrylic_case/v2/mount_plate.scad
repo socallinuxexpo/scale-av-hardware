@@ -1,6 +1,6 @@
 include<parts.scad>
 
-mount_plate();
+projection(cut=true) mount_plate();
 
 module mount_plate(){
     difference(){
