@@ -9,13 +9,15 @@ module front(type="exp"){
 //        for(Y=[0:1:3]) translate([22.5, -20.5+Y*28,0]) cylinder(d=6, h=40, center=true, $fn=60);
         for(Y=[0:1:3]) translate([20, -22.5+Y*29,0]) cylinder(d=6, h=40, center=true, $fn=60);
         hull() for(X=[-5,5]) translate([22.5+X, -123.5,0]) cylinder(d=5, h=40, center=true, $fn=60);
-        hull() for(X=[-7,7], Y=[-124, -57]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
-        hull() for(X=[-12.5,7], Y=[-124, -39.5]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
+        //hull() for(X=[-7,7], Y=[-124, -57]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
+        //hull() for(X=[-12.5,7], Y=[-124, -39.5]) translate([-5.5+X, Y,0]) cylinder(d=5, h=40, center=true, $fn=60);
+        hull() for(X=[-12.5,7], Y=[-124, -39.5]) translate([-5.5+X, Y-3,0]) cylinder(d=5, h=40, center=true, $fn=60);
         for(Y=[-20,7]) translate([-1,Y,0]) union(){
             cylinder(d=24, h=front_panel_thickness+0.1, center=true, $fn=60);
             translate([12,-9.5,0]) rotate([0,0,0]) cylinder(d=drill_hole, h=front_panel_thickness+0.1, center=true, $fn=60);
             translate([-12,9.5,0]) rotate([0,0,0]) cylinder(d=drill_hole, h=front_panel_thickness+0.1, center=true, $fn=60);
         }
+        translate([17,0,-(front_panel_thickness)]) rotate([0,0,90]) linear_extrude(front_panel_thickness*2) text("Audio In", font = "Liberation Sans", size = 2);
         translate([-5,34,0]) union(){
             cylinder(d=24, h=front_panel_thickness+0.1, center=true, $fn=60);
 //            cube([17.5,16,front_panel_thickness+0.1], center=true);

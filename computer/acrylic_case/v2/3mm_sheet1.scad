@@ -5,8 +5,6 @@ include <parts.scad>;
 module 3mm_sheet1(){
   sheet();
   translate([-100,0,0]) rotate([0,0,90]) top_plate();
-  translate([205,115,0]) rotate([0,0,90]) dc_mount();
-  translate([205,135,0]) dc_mount_s();
   translate([135,55,0]) usb_mount_brace();
   
   translate([180.5,123,0]) rotate([0,0,90]) dc_mount_s();

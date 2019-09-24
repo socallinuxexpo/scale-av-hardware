@@ -27,8 +27,8 @@ module sata_mount(safe_area=true){
 module xlr_635(tsafe_area=true){
     difference(){
         union(){
-            xlr_plate();
-            translate([0,-4,0]) rotate([90,0,0]) cylinder(d=24, h=5.75, center=true, $fn=60);
+            color("black") xlr_plate();
+            translate([0,-4,0]) rotate([90,0,0]) color("black") cylinder(d=24, h=5.75, center=true, $fn=60);
             color("red"){
                 translate([0,-6,10]) cube([4.5,3,8.75], center=true);
                 translate([0,-6,14]) cube([11.25,3,3.6], center=true);
