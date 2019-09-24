@@ -1,6 +1,6 @@
 include <parts.scad>
 
-projection(cut=true) front();
+front();
 
 module front(type="exp"){
     drill_hole=2.28;
@@ -17,6 +17,7 @@ module front(type="exp"){
             translate([12,-9.5,0]) rotate([0,0,0]) cylinder(d=drill_hole, h=front_panel_thickness+0.1, center=true, $fn=60);
             translate([-12,9.5,0]) rotate([0,0,0]) cylinder(d=drill_hole, h=front_panel_thickness+0.1, center=true, $fn=60);
         }
+        translate([17,0,-(front_panel_thickness)]) rotate([0,0,90]) linear_extrude(front_panel_thickness*2) text("Audio In", font = "Liberation Sans", size = 2);
         translate([-5,34,0]) union(){
             cylinder(d=24, h=front_panel_thickness+0.1, center=true, $fn=60);
 //            cube([17.5,16,front_panel_thickness+0.1], center=true);

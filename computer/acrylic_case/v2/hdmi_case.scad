@@ -42,7 +42,7 @@ module hdmi_case(){
 //    translate([0,10,35]) %cube([280, 380, internal_height], center=true);
 
 
-    translate([((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side();
+    %translate([((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side();
     %translate([-((internal_width/2)-(main_thickness/2)),0,(internal_height/2)]) rotate([0,90,0]) side(side="right");
     translate([0,-(380/2)-(main_thickness/2),(internal_height/2)]) rotate([0,90,-90]) back();
     translate([0,(380/2)+front_panel_thickness/2,(internal_height/2)]) rotate([0,90,-90]) front();

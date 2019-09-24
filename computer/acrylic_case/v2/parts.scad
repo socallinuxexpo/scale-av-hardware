@@ -13,7 +13,8 @@ front_panel_thickness=main_thickness;
 tab_width=50;
 internal_height=70;
 internal_width=280+(main_thickness*2);
-
+left_tab=20;
+right_tab=25;
 
 
 module dc_mount(){
@@ -87,7 +88,8 @@ module back_base(thickness=main_thickness){
     difference(){
         cube([internal_height, internal_width-(main_thickness*2), thickness], center=true);
     }
-    for(Y=[-1,1]) translate([0,((internal_width-main_thickness)/2)*Y,0]) tab(length=20+0.1, width=main_thickness+0.1, thickness=thickness+0.1);
+    translate([0,((internal_width-main_thickness)/2),0]) tab(length=left_tab+0.1, width=main_thickness+0.1, thickness=thickness+0.1);
+    translate([0,-((internal_width-main_thickness)/2),0]) tab(length=right_tab+0.1, width=main_thickness+0.1, thickness=thickness+0.1);
     for(Y=[-1,1]) translate([((internal_height+main_thickness)/2),75*Y,0]) tab(thickness=thickness+0.1);
 
     translate([-((internal_height+top_thickness)/2),0,0]) tab(length=top_thickness+0.1, thickness=thickness+0.1);
@@ -95,7 +97,7 @@ module back_base(thickness=main_thickness){
 
 module back(){
     difference(){
-        back_base();
+        mirror([0,1,0]) back_base();
         translate([-20,-100,-(main_thickness/2)-0.1]) scale([0.75,0.75,1]) scale_av();
     }
 }
