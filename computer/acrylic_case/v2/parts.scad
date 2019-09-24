@@ -26,6 +26,16 @@ module dc_mount_s(){
     }
 }
 
+
+module sata_mount_panel(){
+    difference(){
+        hull() for(X=[-1,1]) translate([-45*X,0, 0,]) cylinder(d=7, h=top_thickness, center=true, $fn=60);
+        for(X=[-45,15,45]) translate([X,0, 0,]) cylinder(d=3, h=top_thickness+0.1, center=true, $fn=60);
+    }
+    for(X=[-10,30]) translate([X,5,0]) tab(length=10, width=top_thickness, thickness=top_thickness);
+    
+}
+
 module sheet(){
     %cube([24*25.4, 12*25.4, 1], center=true);
 }
