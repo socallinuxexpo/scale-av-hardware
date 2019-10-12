@@ -1,6 +1,6 @@
 OSC=openscad
-TARGET_DXF=dxf/3mm_output.dxf dxf/6mm_output1.dxf dxf/6mm_output2.dxf dxf/6mm_fronts.dxf
-TARGET_SVG=svg/3mm_output.svg svg/6mm_output1.svg svg/6mm_output2.svg dxf/6mm_fronts.dxf
+TARGET_DXF=dxf/3mm_output.dxf dxf/6mm_output1.dxf dxf/6mm_output2l.dxf dxf/6mm_outputr.dxf dxf/6mm_fronts.dxf
+TARGET_SVG=svg/3mm_output.svg svg/6mm_output1.svg svg/6mm_output2l.svg svg/6mm_output2r.svg svg/6mm_fronts.dxf
 world:
 	@echo "Choose 'make all' or make <one of the following>:"
 	@echo $(TARGET_DXF) $(TARGET_SVG)
@@ -19,12 +19,20 @@ svg/6mm_output1.svg: 6mm_output1.scad
 	mkdir -p svg
 	$(OSC) -m make -o $@ $<
 
-svg/6mm_output2.svg: 6mm_output2.scad
+svg/6mm_output2l.svg: 6mm_output2.scad
 	mkdir -p svg
-	$(OSC) -m make -o $@ $<
+	$(OSC) -D "which_side=\"left\"" -m make -o $@ $<
+
+svg/6mm_output2r.svg: 6mm_output2.scad
+	mkdir -p svg
+	$(OSC) -D "which_side=\"right\"" -m make -o $@ $<
 
 svg/6mm_fronts.svg: 6mm_fronts.scad
 	mkdir -p svg
+	$(OSC) -m make -o $@ $<
+
+dxf/6mm_fronts.dxf: 6mm_fronts.scad
+	mkdir -p dxf
 	$(OSC) -m make -o $@ $<
 
 dxf/3mm_output.dxf: 3mm_output.scad
@@ -35,9 +43,13 @@ dxf/6mm_output1.dxf: 6mm_output1.scad
 	mkdir -p dxf
 	$(OSC) -m make -o $@ $<
 
-dxf/6mm_output2.dxf: 6mm_output2.scad
+dxf/6mm_output2l.dxf: 6mm_output2.scad
 	mkdir -p dxf
-	$(OSC) -m make -o $@ $<
+	$(OSC) -D "which_side=\"left\"" -m make -o $@ $<
+
+dxf/6mm_output2r.dxf: 6mm_output2.scad
+	mkdir -p dxf
+	$(OSC) -D "which_side=\"right\"" -m make -o $@ $<
 
 dxf/right_side.dxf: side.scad
 	mkdir -p dxf
