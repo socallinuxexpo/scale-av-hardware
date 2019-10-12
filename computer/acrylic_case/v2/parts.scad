@@ -100,7 +100,8 @@ module back_base(thickness=main_thickness){
     }
     translate([0,((internal_width-main_thickness)/2),0]) tab(length=left_tab+0.1, width=main_thickness+0.1, thickness=thickness+0.1);
     translate([0,-((internal_width-main_thickness)/2),0]) tab(length=right_tab+0.1, width=main_thickness+0.1, thickness=thickness+0.1);
-    for(Y=[-1,1]) translate([((internal_height+main_thickness)/2),75*Y,0]) tab(thickness=thickness+0.1);
+    translate([((internal_height+main_thickness)/2),-75,0]) tab(width=right_tab*2, thickness=thickness+0.1);
+    translate([((internal_height+main_thickness)/2),75,0]) tab(width=left_tab*2, thickness=thickness+0.1);
 
     translate([-((internal_height+top_thickness)/2),0,0]) tab(length=top_thickness+0.1, thickness=thickness+0.1);
 }
@@ -160,10 +161,15 @@ module base_plate(thickness=main_thickness, dual_tab=true){
     difference(){
         cube([internal_width, 380+main_thickness*2, thickness], center=true);
         if(dual_tab == true){
-            for(X=[-1,1]) translate([75*X,-((380+main_thickness)/2),0])
-                tab(length=tab_width+0.1, width=main_thickness+0.1, thickness=main_thickness+0.1);
-            for(X=[-1,1]) translate([75*X,((380+front_panel_thickness)/2),0])
-                tab(length=tab_width+0.1, width=front_panel_thickness+0.1, thickness=main_thickness+0.1);
+            translate([-75,-((380+main_thickness)/2),0])
+                tab(length=left_tab*2+0.1, width=main_thickness+0.1, thickness=main_thickness+0.1);
+            translate([75,-((380+main_thickness)/2),0])
+                tab(length=right_tab*2+0.1, width=main_thickness+0.1, thickness=main_thickness+0.1);
+            
+            translate([-75,((380+front_panel_thickness)/2),0])
+                tab(length=right_tab*2+0.1, width=front_panel_thickness+0.1, thickness=main_thickness+0.1);
+            translate([75,((380+front_panel_thickness)/2),0])
+                tab(length=left_tab*2+0.1, width=front_panel_thickness+0.1, thickness=main_thickness+0.1);
         }
         else{
             translate([0,-((380+main_thickness)/2),0])
