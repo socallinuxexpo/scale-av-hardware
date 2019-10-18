@@ -2,7 +2,7 @@
 New version of SCaLE A/V podium computer redesigned in openscad supporting to
 to support HDMI capture.
 
-![3d Rendering of Case with internal components](img/case.png?raw=true)
+![3d Rendering of Case with internal components](img/hdmi_case.png?raw=true)
 
 #### Make SVG files for laser cutting.
 After running the following there will be files ing svg/ directory.
